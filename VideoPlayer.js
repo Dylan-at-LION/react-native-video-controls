@@ -48,7 +48,7 @@ export default class VideoPlayer extends Component {
             rate: this.props.rate,
             // Controls
 
-            isFullscreen: this.props.resizeMode === 'cover' || false,
+            isFullscreen: this.props.resizeMode === 'contain' || false,
             showTimeRemaining: true,
             volumeTrackWidth: 0,
             lastScreenPress: 0,
@@ -428,7 +428,7 @@ export default class VideoPlayer extends Component {
         state.isFullscreen = ! state.isFullscreen;
 
         if (this.props.toggleResizeModeOnFullscreen) {
-            state.resizeMode = state.isFullscreen === true ? 'cover' : 'contain';
+            state.resizeMode = state.isFullscreen === true ? 'contain' : 'cover';
         }
 
         if (state.isFullscreen) {
