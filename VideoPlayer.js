@@ -124,11 +124,9 @@ export default class VideoPlayer extends Component {
 
         this.animations = {
             bottomControl: {
-                marginBottom: new Animated.Value( 0 ),
                 opacity: new Animated.Value( initialValue ),
             },
             topControl: {
-                marginTop: new Animated.Value( 0 ),
                 opacity: new Animated.Value( initialValue ),
             },
             video: {
@@ -315,19 +313,11 @@ export default class VideoPlayer extends Component {
             Animated.timing(
                 this.animations.topControl.opacity,
                 { toValue: 0 }
-            ),
-            Animated.timing(
-                this.animations.topControl.marginTop,
-                { toValue: -100 }
-            ),
+            ),      
             Animated.timing(
                 this.animations.bottomControl.opacity,
                 { toValue: 0 }
-            ),
-            Animated.timing(
-                this.animations.bottomControl.marginBottom,
-                { toValue: -100 }
-            ),
+            ),          
         ]).start();
     }
 
@@ -343,16 +333,8 @@ export default class VideoPlayer extends Component {
                 { toValue: 1 }
             ),
             Animated.timing(
-                this.animations.topControl.marginTop,
-                { toValue: 0 }
-            ),
-            Animated.timing(
                 this.animations.bottomControl.opacity,
                 { toValue: 1 }
-            ),
-            Animated.timing(
-                this.animations.bottomControl.marginBottom,
-                { toValue: 0 }
             ),
         ]).start();
     }
@@ -864,7 +846,6 @@ export default class VideoPlayer extends Component {
                 styles.controls.top,
                 {
                     opacity: this.animations.topControl.opacity,
-                    marginTop: this.animations.topControl.marginTop,
                 }
             ]}>
                 <ImageBackground
@@ -953,7 +934,6 @@ export default class VideoPlayer extends Component {
                 styles.controls.bottom,
                 {
                     opacity: this.animations.bottomControl.opacity,
-                    marginBottom: this.animations.bottomControl.marginBottom,
                 }
             ]}>
                 <ImageBackground
